@@ -1,0 +1,105 @@
+CREATE TABLE Tipo_Id (
+IdTipoIdentificacao umeric (30) NOT NULL,
+Descricao Varchar (50) NOT NULL,
+Nome Varchar (20) NOT NULL,
+Observacoes Varchar (100) NOT NULL,
+UNIQUE (Nome);
+PRIMARY KEY (IdTipoIdentificacao);
+)
+
+
+CREATE TABLE Identificacao (
+IdTipoIdentificacao Numeric (30) NOT NULL,
+Nome Varchar (20) NOT NULL,
+Categoria Varchar (30) NOT NULL,
+UNIQUE (Nome);
+PRIMARY KEY (IdTipoIdentificacao);
+)
+
+CREATE TABLE Categoria (
+IdentificacaoVisitante Varchar (30) NOT NULL,
+Nome Varchar (20) NOT NULL,
+Tipo Varchar (30) NOT NULL,
+UNIQUE (Nome);
+PRIMARY KEY (IdentificacaoVisitante);
+)
+
+CREATE TABLE Visitantes (
+PrestadorDeServico Varchar (30) NOT NULL,
+Empregado Varchar (30) NOT NULL,
+Moradores Varchar (30) NOT NULL,
+Visitantes Varchar (30) NOT NULL,
+)
+
+CREATE TABLE Prestador de Servicos (
+IdentificacaoPrestadorDeServicos Varchar (30) NOT NULL,
+IdTipoDeIdentificacao Numeric (30) NOT NULL,
+IdPrestadorDeServicos Numeric (30) NOT NULL,
+Nome Varchar (20) NOT NULL,
+TipoServico Varchar (100) NOT NULL,
+)
+
+CREATE TABLE Empregado (
+IdentificacaoEmpregado Varchar (30) NOT NULL,
+IdTipoDeIdentificacao Numeric (30) NOT NULL,
+Nome Varchar (20) NOT NULL,
+IdEmpregado Numeric (30) NOT NULL,
+TipoServico Varchar (100) NOT NULL,
+)
+
+CREATE TABLE Visitante (
+IdentificacaoVisitante Varchar (30) NOT NULL,
+IdMorador Numeric (30) NOT NULL,
+IdVisitante Numeric (30) NOT NULL,
+Nome Varchar (20) NOT NULL,
+UNIQUE (IdMorador);
+PRIMARY KEY (IdentificacaoVisitante);
+)
+
+CREATE TABLE Morador (
+IdMorador Numeric (30) NOT NULL,
+TipoResidencia Varchar (100) NOT NULL,
+PlacaAutomovel Numeric (30) NOT NULL,
+Nome Varchar (20) NOT NULL,
+IdVisitante Numeric (30) NOT NULL,
+Ocorrencias Varchar (100) NOT NULL,
+Reserva Varchar (50) NOT NULL,
+UNIQUE (IdMorador);
+PRIMARY KEY (IdMorador);
+)
+
+CREATE TABLE Ocorrencias (
+DescricaoOcorrencia Varchar (100) NOT NULL,
+TipoDeOcorrencia Varchar (50) NOT NULL,
+IdMorador Numeric (30) NOT NULL,
+IdEmpregado Numeric (30) NOT NULL,
+IdVisitante Numeric (30) NOT NULL,
+IdPrestadorDeServicos Numeric (30) NOT NULL,
+Observacoes Varchar (100) NOT NULL,
+UNIQUE (DescricaoOcorrencia);
+PRIMARY KEY (DescricaoOcorrencia);
+)
+
+CREATE TABLE Automovel (
+NumeroAutomovel Numeric (30) NOT NULL,
+ModeloVeiculo Varchar (50) NOT NULL,
+PlacaAutomovel Numeric (30) NOT NULL,
+NumeroVaga Numeric (30) NOT NULL,
+UNIQUE (NumeroAutomovel);
+PRIMARY KEY (PlacaAutomovell);
+)
+
+CREATE TABLE Reserva (
+NumeroVaga Numeric (30) NOT NULL,
+NumeroAutomovel Numeric (30) NOT NULL,
+PlacaAutomovel Numeric (30) NOT NULL,
+Reservado Varchar (30) NOT NULL,
+TipoUnidade Numeric (30) NOT NULL,
+DataReserva Numeric (30) NOT NULL,
+Descricao Varchar (100) NOT NULL,
+UNIQUE (NumeroVaga);
+PRIMARY KEY (NumeroVaga);
+)
+
+CREATE DATABASE Sistema de Visitantes;
+USE  Sistemas de Visitantes;
